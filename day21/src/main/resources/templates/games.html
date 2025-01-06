@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>List of Games</h1>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-th-each="g: ${games}" data-th-object="${g}">
+                    <td>
+                        <a data-th-href="*{url}" target="_blank">
+                            <span data-th-text="*{name}"></span>
+                        </a>
+                        </span></td>
+                    <td><span data-th-text="*{year}"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
