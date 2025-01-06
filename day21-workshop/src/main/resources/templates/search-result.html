@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <h1>Search result for author  '<code data-th-text="${author}"></code>' </h1>
+
+        <div data-th-if="${#lists.isEmpty(books)}">
+            <h2>No books found</h2>
+        </div>
+
+        <div data-th-unless="${#lists.isEmpty(books)}">
+            <ol>
+                <li data-th-each="b: ${books}" data-th-object="${b}">
+                    <a data-th-href="@{/book/{asin}(asin=*{asin},author=${author},count=${count})}">
+                        <h4 data-th-text="*{title}"></h4>
+                    </a>
+                </li>
+            </ol>
+        </div>
+
+        <div>
+            <a data-th-href="@{/}">Back</a>
+        </div>
+
+    </body>
+</html>
