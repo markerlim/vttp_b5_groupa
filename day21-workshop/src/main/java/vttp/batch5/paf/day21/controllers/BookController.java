@@ -1,6 +1,7 @@
 package vttp.batch5.paf.day21.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
@@ -25,7 +26,21 @@ public class BookController {
     public ModelAndView getBookByAsin(@PathVariable String asin
         , @RequestParam String author, @RequestParam(defaultValue="10") int count) {
 
+        Optional<Book> opt = bookSvc.getBookByAsin(asin);
+
         ModelAndView mav = new ModelAndView("book-detail");
+
+        if (opt.isEmpty()) {
+            mav = new ModelAndView("not-found");
+            mav.setStatus(HttpStatusCode.valueOf(404));
+            mav.addObject("message", "Cannot find book %s".formatted(asin));
+            return mav;
+        }
+
+        // Will throw exception if opt.isEmpty()
+        Book book = opt.get();
+        // Process the book
+
         return mav;
     }
 

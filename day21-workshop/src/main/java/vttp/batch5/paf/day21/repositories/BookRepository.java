@@ -2,6 +2,7 @@ package vttp.batch5.paf.day21.repositories;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,6 +18,16 @@ import static vttp.batch5.paf.day21.repositories.Utils.*;
 public class BookRepository {
     @Autowired
     private JdbcTemplate template;
+
+    public Optional<Book> getBookByAsin(String asin) {
+
+        SqlRowSet rs = template.queryForRowSet(SQL_GET_BOOK_BY_ID, asin);
+        if (!rs.next())
+            return Optional.empty();
+
+        Book b =  toBook(rs);
+        return Optional.of(b);
+    }
 
     public List<Book> getBooksByAuthor(String author, int count) {
 
