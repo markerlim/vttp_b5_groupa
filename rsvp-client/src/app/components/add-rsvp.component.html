@@ -1,0 +1,35 @@
+<div>
+  <button type="button" [routerLink]="['/']">Back</button>
+</div>
+<hr>
+
+<h2>New RSVP</h2>
+
+<form [formGroup]="rsvpForm" (submit)="processForm()">
+  <table>
+    <tr>
+      <td>Email:</td>
+      <td> <input type="email" size="30" formControlName="email"> </td>
+    </tr>
+    <tr>
+      <td>Phone:</td>
+      <td> <input type="tel" size="30" formControlName="phone"> </td>
+    </tr>
+    <tr>
+      <td>Confirmation Date:</td>
+      <td> <input type="date" formControlName="confirmDate"> </td>
+    </tr>
+    <tr>
+      <td>Comments:</td>
+      <td>
+        <textarea cols="30" rows="5" formControlName="comments"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> <button type="submit" [disabled]="rsvpForm.invalid">
+          Add</button>
+      </td>
+    </tr>
+  </table>
+</form>

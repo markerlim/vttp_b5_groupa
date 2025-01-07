@@ -1,0 +1,31 @@
+<div>
+  <button type="button" [routerLink]="['/add']">New RSVP</button>
+</div>
+<hr>
+
+@if (rsvp$ | async; as rsvp) {
+  @if (rsvp.length <= 0) {
+    <h2> No one has RSVPed yet!</h2>
+  } @else {
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Confirmation Date</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (r of rsvp; track $index) {
+          <tr>
+            <td>{{ r.email }}</td>
+            <td>{{ r.phone }}</td>
+            <td>{{ r.confirmDate }}</td>
+            <td> <code> {{ r.comments }} </code> </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+}
