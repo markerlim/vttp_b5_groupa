@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+
+    <h1>Popular songs for the year <span data-th-text="${year}"></span> </h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Track</th>
+          <th>Artist(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-th-each="tr: ${tracks}" data-th-object="${tr}">
+          <td> <span data-th-text="*{trackName}"></span> </td>
+          <td> <span data-th-text="*{artistName}"></span> </td>
+          <!--
+          <td> <span data-th-text="*{artistNames}"></span> </td>
+          -->
+        </tr>
+      </tbody>
+    </table>
+
+    <a data-th-href="@{/}"> <h2> Back </h2> </a>
+    
+  </body>
+</html>

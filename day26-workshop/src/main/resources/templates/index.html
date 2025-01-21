@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      .end {
+        display: flex;
+        justify-content: flex-end;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Select a year to view the top songs</h1>
+
+    <form method="GET" data-th-action="@{/spotify/search}">
+      <table>
+        <tr>
+          <td> Year: </td>
+          <td>
+            <select name="year">
+              <option data-th-each="y: ${years}" 
+                  data-th-value="${y}"
+                  data-th-text="${y}"></option>
+            </select>
+          </td>
+          <td>
+            <button type="submit">Search</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    
+  </body>
+</html>
