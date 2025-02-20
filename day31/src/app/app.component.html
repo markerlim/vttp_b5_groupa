@@ -1,0 +1,15 @@
+
+<h1>{{ title }} ({{ allClicks }})</h1>
+
+<app-text-input (onNewText)="whenNewText($event)"></app-text-input>
+
+@if (texts.length > 0) {
+  @for (t of texts; let idx = $index; track t) {
+      <app-text [text]="t" (totalClicks)="whenTotalClicks(idx, $event)"></app-text>
+  }
+}
+@else {
+  <h2>Not phrases to display</h2>
+}
+
+
