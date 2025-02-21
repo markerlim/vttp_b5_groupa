@@ -1,0 +1,54 @@
+
+<h2>Todo Task</h2>
+<form>
+
+  <table>
+    <tr>
+      <td>Task Name:</td>
+      <td>
+        <input type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>Priority:</td>
+      <td>
+        <select>
+          <option value="0">Low</option>
+          <option value="1">Mid</option>
+          <option value="2">High</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Due Date:</td>
+      <td>
+        <input type="date">
+      </td>
+    </tr>
+    <tr>
+      <td>Urgency:</td>
+      <td>
+        <input type="range" min="1" max="5" (change)="updateUrgency($event)"> ({{ urgency }})
+      </td>
+    </tr>
+    <tr>
+      <td>Comments:</td>
+      <td>
+        <textarea rows="4" cols="30"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>Procrestinate:</td>
+      <td>
+        <input type="checkbox">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit">Add</button>
+      </td>
+    </tr>
+  </table>
+
+</form>
