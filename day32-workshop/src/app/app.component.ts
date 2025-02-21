@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
     this.lineItems.push(this.createLineItem())
   }
   protected removeLineItem(idx: number) {
+    console.info('> ', idx)
     this.lineItems.removeAt(idx)
   }
 
