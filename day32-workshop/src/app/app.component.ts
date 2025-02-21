@@ -31,7 +31,8 @@ export class AppComponent implements OnInit {
   }
   protected hasError(ctrlName: string): boolean {
     const ctrl = this.form.get(ctrlName) as FormControl
-    return !ctrl.pristine && ctrl.invalid
+    //return !ctrl.pristine && ctrl.invalid
+    return ctrl.dirty && ctrl.invalid
   }
   protected invalid() {
     return this.form.invalid || (this.lineItems.controls.length <= 0)
